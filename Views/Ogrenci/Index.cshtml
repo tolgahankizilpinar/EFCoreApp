@@ -21,8 +21,8 @@
                 <td>@Html.DisplayFor(m => ogr.OgrenciAd)</td>
                 <td>@Html.DisplayFor(m => ogr.OgrenciSoyad)</td>
                 <td>
-                    <a href="" class="btn btn-sm btn-primary">Details</a>
-                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                    <a asp-controller="Ogrenci" asp-action="Edit" asp-route-id="@ogr.OgrenciId" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-controller="Ogrenci" asp-action="Delete" asp-route-id="@ogr.OgrenciId" class="btn btn-sm btn-danger">Delete</a>
                 </td>
             </tr>
         }
