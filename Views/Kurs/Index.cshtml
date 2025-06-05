@@ -19,8 +19,8 @@
                 <td>@Html.DisplayFor(m => ogr.KursId)</td>
                 <td>@Html.DisplayFor(m => ogr.Baslik)</td>
                 <td>
-                    <a asp-controller="Ogrenci" asp-action="Edit" asp-route-id="@ogr.KursId" class="btn btn-sm btn-primary">Edit</a>
-                    <a asp-controller="Ogrenci" asp-action="Delete" asp-route-id="@ogr.KursId" class="btn btn-sm btn-danger">Delete</a>
+                    <a asp-controller="Kurs" asp-action="Edit" asp-route-id="@ogr.KursId" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-controller="Kurs" asp-action="Delete" asp-route-id="@ogr.KursId" class="btn btn-sm btn-danger">Delete</a>
                 </td>
             </tr>
         }

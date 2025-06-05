@@ -1,0 +1,14 @@
+@model Kurs
+
+<h2 class="text-center">Kurs Güncelleme</h2>
+
+<form asp-controller="Kurs" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="KursId">
+    <div class="mb-3">
+        <label asp-for="Baslik" class="form-label"></label>
+        <input asp-for="Baslik" class="form-control">
+    </div>
+    <div class="mb-3">
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>  
