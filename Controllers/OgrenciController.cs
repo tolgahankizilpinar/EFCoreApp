@@ -40,8 +40,12 @@ namespace EFCoreApp.Controllers
             {
                 return NotFound();
             }
-            var ogr = await _context.Ogrenciler.FindAsync(id);
-            //var ogr = await _context.Ogrenciler.FirstOrDefaultAsync(m => m.OgrenciId == id);
+            var ogr = await _context
+                    .Ogrenciler
+                    .Include(x => x.KursKayitlari)
+                    .ThenInclude(p => p.Kurs)
+                    .FirstOrDefaultAsync(m => m.OgrenciId == id);
+           
 
             if (ogr == null)
             {
@@ -94,7 +98,7 @@ namespace EFCoreApp.Controllers
 
             var ogrenci = await _context.Ogrenciler.FindAsync(id);
 
-            if (id == null)
+            if (ogrenci == null)
             {
                 return NotFound();
             }
