@@ -3,6 +3,7 @@ using System;
 using EFCoreApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCoreApp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250609142432_AddTableOgretmen")]
+    partial class AddTableOgretmen
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
@@ -26,7 +29,7 @@ namespace EFCoreApp.Migrations
                     b.Property<string>("Baslik")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("OgretmenId")
+                    b.Property<int?>("OgretmenId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("KursId");
@@ -113,9 +116,7 @@ namespace EFCoreApp.Migrations
                 {
                     b.HasOne("EFCoreApp.Data.Ogretmen", "Ogretmen")
                         .WithMany("Kurslar")
-                        .HasForeignKey("OgretmenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OgretmenId");
 
                     b.Navigation("Ogretmen");
                 });
